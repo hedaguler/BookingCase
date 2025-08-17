@@ -1,0 +1,319 @@
+﻿@model BookingCase.Models.ViewModels.SearchFormViewModel
+
+<!-- HERO + Arama -->
+<section class="hero-section set-bg"
+         style="background-image:url('@Url.Content("~/sona/img/hero/hero-1.jpg")')"
+         data-setbg="@Url.Content("~/sona/img/hero/hero-1.jpg")">
+    <div class="container">
+        <div class="row">
+            <!-- Sol: başlık -->
+            <div class="col-lg-6">
+                <div class="hero-text">
+                    <span>Find your room</span>
+                    <h1>Arama Formu</h1>
+                    <p>Şehri ve tarihleri gir, uygun otelleri listeleyelim.</p>
+                </div>
+            </div>
+
+            <!-- Sağ: Sona booking formu -->
+            <div class="col-lg-4 offset-lg-2">
+                <div class="booking-form">
+                    <h3>Arama Formu</h3>
+                    <form method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Kullanıcı Adı</label>
+                            <input asp-for="UserName" class="form-control" placeholder="ad soyad" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Şehir</label>
+                            <input asp-for="City" class="form-control" />
+                        </div>
+
+                        <div class="check-date">
+                            <label>Check-in</label>
+                            <input asp-for="CheckIn" type="date" />
+                            <i class="icon_calendar"></i>
+                        </div>
+
+                        <div class="check-date">
+                            <label>Check-out</label>
+                            <input asp-for="CheckOut" type="date" />
+                            <i class="icon_calendar"></i>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 select-option">
+                                <label>Yetişkin</label>
+                                <select asp-for="Adults" class="form-select">
+                                    @for (int i = 1; i <= 10; i++)
+                                    {
+                                        <option value="@i">@i</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-6 select-option">
+                                <label>Oda</label>
+                                <select asp-for="Rooms" class="form-select">
+                                    @for (int i = 1; i <= 10; i++)
+                                    {
+                                        <option value="@i">@i</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="select-option">
+                            <label>Para Birimi</label>
+                            <select asp-for="Currency" class="form-select">
+                                <option>USD</option>
+                                <option>TRY</option>
+                            </select>
+                        </div>
+
+                        <button class="primary-btn" type="submit">Müsait Otelleri Göster</button>
+                    </form>
+                </div><!-- .booking-form -->
+            </div><!-- .col -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+</section><!-- /HERO -->
+<!-- ABOUT US -->
+<section class="aboutus-page-section spad-2">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+                <div class="section-title text-start">
+                    <span>About us</span>
+                    <h2>Intercontinental LA<br />Westlake Hotel</h2>
+                </div>
+                <p>
+                    Sona.com seyahat konaklama alanında ilham veren bir sitedir. Her gün,
+                    90+ yerel web sitesi ve 41 dilde milyonlarca gezgine ulaşıyoruz.
+                    Mükemmel oteli, tatil köyünü, daireyi ya da bungalovu bulmana yardım ediyoruz.
+                </p>
+                <a href="#" class="primary-btn">Read More</a>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <img src="~/sona/img/room/room-1.jpg" class="img-fluid rounded-2" alt="About 1" />
+                    </div>
+                    <div class="col-6">
+                        <img src="~/sona/img/room/room-2.jpg" class="img-fluid rounded-2" alt="About 2" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- WHAT WE DO (Bootstrap Carousel) -->
+@* WHAT WE DO (Carousel) *@
+<section class="spad-2 bg-light">
+    <div class="container">
+        <div class="section-title">
+            <span>What we do</span>
+            <h2>Discover Our Services</h2>
+        </div>
+
+        <div id="servicesCarousel" class="carousel slide" data-bs-ride="false" data-bs-interval="0">
+            <div class="carousel-inner">
+
+                <!-- SLIDE 1 -->
+                <div class="carousel-item active">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center border-0 shadow-sm">
+                                <div class="card-body py-4">
+                                    <div class="display-6 mb-2">✈️</div>
+                                    <h4 class="mb-2">Travel Plan</h4>
+                                    <p class="mb-0">Uçuş, transfer ve rota planlaması.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center border-0 shadow-sm">
+                                <div class="card-body py-4">
+                                    <div class="display-6 mb-2">🍽️</div>
+                                    <h4 class="mb-2">Catering Service</h4>
+                                    <p class="mb-0">Etkinlik ve toplantılara özel ikramlar.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center border-0 shadow-sm">
+                                <div class="card-body py-4">
+                                    <div class="display-6 mb-2">🧸</div>
+                                    <h4 class="mb-2">Babysitting</h4>
+                                    <p class="mb-0">Aileler için güvenilir bebek bakımı.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="carousel-item">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center border-0 shadow-sm">
+                                <div class="card-body py-4">
+                                    <div class="display-6 mb-2">🧺</div>
+                                    <h4 class="mb-2">Laundry</h4>
+                                    <p class="mb-0">Aynı gün kuru temizleme ve ütü.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center border-0 shadow-sm">
+                                <div class="card-body py-4">
+                                    <div class="display-6 mb-2">🚗</div>
+                                    <h4 class="mb-2">Hire Driver</h4>
+                                    <p class="mb-0">Saatlik/günlük özel şoför hizmeti.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center border-0 shadow-sm">
+                                <div class="card-body py-4">
+                                    <div class="display-6 mb-2">🍹</div>
+                                    <h4 class="mb-2">Bar &amp; Drink</h4>
+                                    <p class="mb-0">Kokteyller ve geniş içecek menüsü.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Controls (CSS'inle uyumlu küçük yuvarlak oklar) -->
+            <button class="carousel-control-prev" type="button"
+                    data-bs-target="#servicesCarousel" data-bs-slide="prev" aria-label="Previous">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button"
+                    data-bs-target="#servicesCarousel" data-bs-slide="next" aria-label="Next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- TESTIMONIALS -->
+<section class="testimonial-section spad">
+    <div class="container">
+        <div class="section-title">
+            <span>Testimonials</span>
+            <h2>What Customers Say?</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center px-2 px-md-5">
+                    <p class="mb-3">
+                        “Kısa süreli konaklamamız boyunca personel inanılmaz yardımcıydı.
+                        Oda tertemizdi ve lokasyon harika. Kesinlikle tekrar geleceğiz.”
+                    </p>
+                    <div class="mb-2 stars">★★★★★</div>
+                    <small class="text-muted">— Alexander Vasquez</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- HOTEL NEWS -->
+<section class="blog-section spad-2">
+    <div class="container">
+        <div class="section-title">
+            <span>Hotel News</span>
+            <h2>Our Blog &amp; Event</h2>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="~/sona/img/blog/blog-1.jpg" class="card-img-top" alt="blog 1"
+                         onerror="this.src='@Url.Content("~/sona/img/room/room-1.jpg")'">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark">Travel Trip</span>
+                        <h5 class="mt-2 mb-1">Tremblant In Canada</h5>
+                        <small class="text-muted">15th April, 2019</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="~/sona/img/blog/blog-2.jpg" class="card-img-top" alt="blog 2"
+                         onerror="this.src='@Url.Content("~/sona/img/room/room-2.jpg")'">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark">Camping</span>
+                        <h5 class="mt-2 mb-1">Choosing A Static Caravan</h5>
+                        <small class="text-muted">15th April, 2019</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="~/sona/img/blog/blog-3.jpg" class="card-img-top" alt="blog 3"
+                         onerror="this.src='@Url.Content("~/sona/img/room/room-3.jpg")'">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark">Event</span>
+                        <h5 class="mt-2 mb-1">Copper Canyon</h5>
+                        <small class="text-muted">21th April, 2019</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <img src="~/sona/img/blog/blog-4.jpg" class="card-img-top" alt="blog 4"
+                         onerror="this.src='@Url.Content("~/sona/img/room/room-4.jpg")'">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark">Event</span>
+                        <h5 class="mt-2 mb-1">Trip To Iqaluit In Nunavut</h5>
+                        <small class="text-muted">08th April, 2019</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <img src="~/sona/img/blog/blog-5.jpg" class="card-img-top" alt="blog 5"
+                         onerror="this.src='@Url.Content("~/sona/img/room/room-5.jpg")'">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark">Travel</span>
+                        <h5 class="mt-2 mb-1">Traveling To Barcelona</h5>
+                        <small class="text-muted">12th April, 2019</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var el = document.getElementById('servicesCarousel');
+            if (el && window.bootstrap && bootstrap.Carousel) {
+                new bootstrap.Carousel(el, { interval: 0, ride: false, wrap: true }););
+            }
+        });
+    </script>
+}

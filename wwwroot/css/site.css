@@ -1,0 +1,98 @@
+/* ===== Global ===== */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus,
+.form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem #fff, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+/* Stars used in testimonials */
+.stars {
+    letter-spacing: 3px;
+    font-size: 20px;
+    color: #f5b917;
+}
+
+/* ===== WHAT WE DO – Services carousel ===== */
+#servicesCarousel {
+    position: relative;
+}
+
+    #servicesCarousel .carousel-inner {
+        overflow: visible;
+    }
+
+    /* Küçük, yuvarlak ve ortalanmýþ kontrol butonlarý */
+    #servicesCarousel .carousel-control-prev,
+    #servicesCarousel .carousel-control-next {
+        position: absolute;
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+        width: 32px !important;
+        height: 32px !important;
+        padding: 0;
+        background: transparent !important; /* Bootstrap'in gri overlay'ini kaldýr */
+        border: none !important;
+        opacity: 1;
+        z-index: 3;
+    }
+
+    /* Konumlar (hafif dýþta) */
+    #servicesCarousel .carousel-control-prev {
+        left: -12px !important;
+    }
+
+    #servicesCarousel .carousel-control-next {
+        right: -12px !important;
+    }
+
+    /* Ýkonu buton gibi göster */
+    #servicesCarousel .carousel-control-prev-icon,
+    #servicesCarousel .carousel-control-next-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #fff;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 14px 14px; /* chevron boyutu */
+        border: 1px solid #EFD4B9;
+        box-shadow: 0 2px 8px rgba(0,0,0,.08);
+        /* Sona'nýn sýcak tonuna yakýn chevron rengi */
+        filter: invert(64%) sepia(19%) saturate(1112%) hue-rotate(345deg) brightness(93%) contrast(90%);
+    }
+
+    /* Yardýmcý metni gizle */
+    #servicesCarousel .carousel-control-prev .visually-hidden,
+    #servicesCarousel .carousel-control-next .visually-hidden {
+        display: none !important;
+    }
+
+/* Mobilde butonlarý biraz içeri al */
+@media (max-width: 991.98px) {
+    #servicesCarousel .carousel-control-prev {
+        left: 8px !important;
+    }
+
+    #servicesCarousel .carousel-control-next {
+        right: 8px !important;
+    }
+}

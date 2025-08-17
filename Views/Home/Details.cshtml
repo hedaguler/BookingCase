@@ -1,0 +1,134 @@
+﻿@model BookingCase.Models.ViewModels.HotelDetailViewModel
+@{
+    ViewData["Title"] = "Otel Detayı";
+    string mainPhoto = Model.PhotoUrls?.FirstOrDefault()
+                       ?? Url.Content("~/sona/img/hero/hero-1.jpg");
+}
+
+<section class="room-details-section spad-2">
+    <div class="container">
+        <div class="row">
+            <!-- Sol: Fotoğraflar ve başlık -->
+            <div class="col-lg-8">
+                <div class="room-details-item">
+                    <img src="@mainPhoto"
+                         alt="@Model.HotelName"
+                         style="width:100%;height:420px;object-fit:cover"
+                         loading="lazy"
+                         referrerpolicy="no-referrer" />
+
+                    <div class="rd-text mt-3">
+                        <div class="rd-title mb-2">
+                            <h3>@(Model.Name ?? Model.HotelName)</h3>
+                            <div class="rdt-right">
+                                @if (Model.Score.HasValue)
+                                {
+                                    <div class="rating me-3">
+                                        <i class="icon_star"></i>
+                                        <span>@Model.Score.Value.ToString("0.0")</span>
+                                    </div>
+                                }
+                                @if (Model.Price.HasValue)
+                                {
+                                    <a class="btn btn-sm" style="background:#dfa974;color:#fff">
+                                        @Model.Price.Value.ToString("0") @Model.Currency
+                                    </a>
+                                }
+                            </div>
+                        </div>
+
+                        <table class="mb-3">
+                            <tbody>
+                                <tr>
+                                    <td class="r-o">Adres:</td>
+                                    <td>@(Model.Address ?? "-")</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Yorum Sayısı:</td>
+                                    <td>@(Model.ReviewCount?.ToString() ?? "-")</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Check-in:</td>
+                                    <td>@(string.IsNullOrWhiteSpace(Model.CheckinFrom) ? "-" : Model.CheckinFrom)</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Check-out:</td>
+                                    <td>@(string.IsNullOrWhiteSpace(Model.CheckoutUntil) ? "-" : Model.CheckoutUntil)</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Tarih Aralığı:</td>
+                                    <td>@Model.CheckIn.ToString("yyyy-MM-dd") — @Model.CheckOut.ToString("yyyy-MM-dd")</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        @if (!string.IsNullOrWhiteSpace(Model.Description))
+                        {
+                            <p class="mb-3">@Model.Description</p>
+                        }
+
+                        <!-- Küçük fotoğraflar -->
+                        <div class="d-flex gap-3 flex-wrap">
+                            @foreach (var p in Model.PhotoUrls?.Take(6) ?? Enumerable.Empty<string>())
+                            {
+                                <img src="@p"
+                                     alt="photo"
+                                     style="width:150px;height:100px;object-fit:cover;border-radius:4px"
+                                     loading="lazy"
+                                     referrerpolicy="no-referrer" />
+                            }
+                        </div>
+
+                        <div class="mt-3">
+                            <a href="javascript:history.back()" class="primary-btn">← Listeye Dön</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sağ: Özet kutu -->
+            <div class="col-lg-4">
+                <div class="room-booking">
+                    <h3>Özet</h3>
+
+                    <div class="mb-3">
+                        <strong>Fiyat</strong><br />
+                        @if (Model.Price.HasValue)
+                        {
+                            @Model.Price.Value.ToString("0") @Model.Currency
+                        }
+                        else
+                        {
+                            <span>Belirtilmemiş</span>
+                        }
+                    </div>
+
+                    <div class="mb-2">
+                        <strong>Puan</strong><br />
+                        @(Model.Score.HasValue ? Model.Score.Value.ToString("0.0") : "-")
+                    </div>
+
+                    <div class="mb-2">
+                        <strong>Yorum</strong><br />
+                        @(Model.ReviewCount?.ToString() ?? "-")
+                    </div>
+
+                    <div class="mb-2">
+                        <strong>Check-in</strong><br />
+                        @(string.IsNullOrWhiteSpace(Model.CheckinFrom) ? "-" : Model.CheckinFrom)
+                    </div>
+
+                    <div class="mb-2">
+                        <strong>Check-out</strong><br />
+                        @(string.IsNullOrWhiteSpace(Model.CheckoutUntil) ? "-" : Model.CheckoutUntil)
+                    </div>
+
+                    <div class="mb-2">
+                        <strong>Tarih</strong><br />
+                        @Model.CheckIn.ToString("yyyy-MM-dd") — @Model.CheckOut.ToString("yyyy-MM-dd")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

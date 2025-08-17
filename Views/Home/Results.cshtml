@@ -1,0 +1,80 @@
+﻿@model List<BookingCase.Models.ViewModels.HotelCardViewModel>
+
+@{
+    ViewData["Title"] = "Otel Sonuçları";
+    var destId = ViewBag.DestId as string ?? "";
+    var checkin = ViewBag.CheckIn as string ?? "";
+    var checkout = ViewBag.CheckOut as string ?? "";
+    var currency = ViewBag.Currency as string ?? "USD";
+}
+
+<section class="rooms-section spad-2">
+    <div class="container">
+
+        <div class="section-title">
+            <span>Search results</span>
+            <h2>Otel Sonuçları</h2>
+        </div>
+
+        @if (Model == null || !Model.Any())
+        {
+            <div class="alert alert-warning">Otel bulunamadı.</div>
+        }
+        else
+        {
+            <div class="row">
+                @foreach (var h in Model)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="room-item">
+                            <img src="@(string.IsNullOrWhiteSpace(h.PhotoUrl) ? Url.Content("~/sona/img/room/room-1.jpg") : h.PhotoUrl)"
+                                 alt="@h.HotelName"
+                                 style="width:100%;height:220px;object-fit:cover"
+                                 loading="lazy"
+                                 referrerpolicy="no-referrer" />
+
+                            <div class="ri-text">
+                                <h4>@h.HotelName</h4>
+
+                                <h3>
+                                    @if (h.Price.HasValue)
+                                    {
+                                        @($"{h.Price:0}") <span>@currency</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Fiyat belirtilmemiş</span>
+                                    }
+                                </h3>
+
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="r-o">Adres:</td>
+                                            <td>@(h.Address ?? "-")</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Puan:</td>
+                                            <td>@(h.Score.HasValue && h.Score.Value > 0 ? h.Score.Value.ToString("0.0") : "-")</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <a class="primary-btn"
+                                   asp-action="Details"
+                                   asp-route-id="@h.HotelId"
+                                   asp-route-destId="@destId"
+                                   asp-route-checkin="@checkin"
+                                   asp-route-checkout="@checkout"
+                                   asp-route-currency="@currency">
+                                    Detaylara Git
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</section>

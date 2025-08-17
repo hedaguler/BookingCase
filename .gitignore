@@ -1,0 +1,37 @@
+﻿# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build çıktıları
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+
+# JetBrains Rider / VS Code
+.idea/
+.vscode/
+
+# NuGet paketleri
+*.nupkg
+*.snupkg
+packages/
+
+# Publish ayarları
+*.Publish.xml
+PublishProfiles/
+
+# İstemci kütüphaneleri
+node_modules/
+wwwroot/lib/
+wwwroot/build/
+
+# Diğer
+*.dbmdl
+*.jfm
+*.svclog
+*.pdb
+*.swp
