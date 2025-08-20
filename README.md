@@ -129,17 +129,6 @@ BookingCase/
 
 ---
 
-## 🖼️ Ekran Görüntüleri
-
-> (İsterseniz repoda `docs/` klasörü açıp görselleri ekleyin)
-
-* **Ana Sayfa / Arama Formu**
-* **Otel Sonuçları**
-* **Detay Sayfası**
-* **What We Do Carousel**, **Testimonials**, **Blog**
-
----
-
 
 ## 🤝 Katkı
 
