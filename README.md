@@ -140,22 +140,6 @@ BookingCase/
 
 ---
 
-## 🛠️ Geliştirme İpuçları
-
-* 🧪 Yeni şehir ararken **dest\_id** dinamik olarak bulunur; servis `query`/`name` parametrelerini birlikte gönderir.
-* 🌍 `currency_code`, `languagecode`, `units` gibi parametreler **opsiyonel** ve tema/metinlere göre ayarlanabilir.
-* 🧯 Aşırı istek durumunda 429 hatası yakalanıp kullanıcı dostu mesaj gösterilir.
-
----
-
-## 🧭 Yol Haritası
-
-* [ ] Favori oteller / basit sepet
-* [ ] Harita entegrasyonu
-* [ ] Basit kimlik doğrulama
-* [ ] Çoklu dil desteği (tr/en)
-
----
 
 ## 🤝 Katkı
 
@@ -177,6 +161,9 @@ Tasarım (Sona) ve Booking.com API kullanım koşulları ilgili sağlayıcılara
 
 > Beğendiysen ⭐ vermeyi unutma!
 > Güzel konaklamalar, temiz kodlar! ✈️🏨💻
+
+---
+
 
 https://github.com/user-attachments/assets/f17b5184-6e73-4258-b101-03191e43cb64
 
